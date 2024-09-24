@@ -2,7 +2,7 @@
 
 Remove all merged and not mine branches
 ```bash
-git branch -d `git for-each-ref --exclude="refs/remotes/" --format=' %(authorname) %09 %(refname)' --sort=authorname --merged | egrep -v "(^\*|main|master|accept|develop|HEAD|tags)" | egrep -v "(Vincent Radstake|vincent-paqt)" | awk '{print $NF}' | sed 's|refs/heads/||' | awk '{print}' ORS=' '`
+git branch -d `git for-each-ref --exclude="refs/remotes/" --format=' %(authorname) %09 %(refname)' --sort=authorname --merged | egrep -v "(^\*|main|master|accept|develop|HEAD|tags)" | egrep -v "(Vincent Radstake|vincent-)" | awk '{print $NF}' | sed 's|refs/heads/||' | awk '{print}' ORS=' '`
 ```
 
 Returns all merged branches and exclude remote
@@ -16,7 +16,7 @@ egrep -v "(^\*|main|master|accept|develop|HEAD|tags)"
 
 Remove branches owned by user
 ```bash
-egrep -v "(Vincent Radstake|vincent-paqt)"
+egrep -v "(Vincent Radstake|vincent-)"
 ```
 
 Extracts the last field (refs/heads/...) from each line.
